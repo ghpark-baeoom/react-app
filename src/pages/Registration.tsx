@@ -59,7 +59,7 @@ export function Registration() {
             transition={{ duration: 0.7 }}
             className="text-center"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-4">등록하기</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold mb-4">문의하기</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               지금 바로 신청하고 당신의 꿈을 시작하세요
             </p>

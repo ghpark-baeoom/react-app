@@ -17,7 +17,6 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/courses", label: "Courses" },
-    { href: "/registration", label: "Registration" },
   ];
 
   return (
@@ -46,14 +45,14 @@ export function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button asChild>
-              <Link to="/registration">Apply Now</Link>
+              <Link to="/registration">문의하기</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-accent"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-accent cursor-pointer"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -75,7 +74,7 @@ export function Navbar() {
               </Link>
             ))}
             <Button asChild className="w-full">
-              <Link to="/registration">Apply Now</Link>
+              <Link to="/registration">문의하기</Link>
             </Button>
           </div>
         )}
