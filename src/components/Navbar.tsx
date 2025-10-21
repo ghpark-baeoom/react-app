@@ -1,32 +1,33 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export function Navbar() {
-  const location = useLocation()
-  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const isActive = (path: string) => {
-    return location.pathname === path ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
-  }
+    return location.pathname === path
+      ? "text-primary font-semibold"
+      : "text-foreground hover:text-primary";
+  };
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/courses', label: 'Courses' },
-    { href: '/registration', label: 'Registration' },
-  ]
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/courses", label: "Courses" },
+    { href: "/registration", label: "Registration" },
+  ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2 font-bold text-lg">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground">
-              배
+              배움
             </div>
-            <span className="hidden sm:inline">배움 학점은행제</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -54,11 +55,7 @@ export function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-accent"
           >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
@@ -69,7 +66,9 @@ export function Navbar() {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`block px-3 py-2 rounded-md transition-colors ${isActive(link.href)}`}
+                className={`block px-3 py-2 rounded-md transition-colors ${isActive(
+                  link.href
+                )}`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -82,5 +81,5 @@ export function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }

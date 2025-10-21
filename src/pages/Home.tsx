@@ -67,9 +67,8 @@ export function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold mb-4">왜 배움을 선택하나요?</h2>
@@ -79,8 +78,7 @@ export function Home() {
           <motion.div
             variants={container}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
@@ -131,9 +129,8 @@ export function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {[
@@ -144,9 +141,8 @@ export function Home() {
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
                 className="text-center"
               >
                 <div className="text-5xl font-bold text-primary mb-2">{stat.number}</div>
@@ -164,7 +160,7 @@ export function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h2 className="text-4xl font-bold mb-4">지금 바로 시작하세요</h2>
             <p className="text-lg mb-8 opacity-90">

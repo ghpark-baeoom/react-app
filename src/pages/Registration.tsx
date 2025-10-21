@@ -1,41 +1,57 @@
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { useState } from 'react'
-import { CheckCircle2 } from 'lucide-react'
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 
 export function Registration() {
-  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    course: '',
-    background: ''
-  })
+    name: "",
+    email: "",
+    phone: "",
+    course: "",
+    background: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Here you would typically send the data to a server
-    console.log('Form submitted:', formData)
-    setFormSubmitted(true)
+    console.log("Form submitted:", formData);
+    setFormSubmitted(true);
     setTimeout(() => {
-      setFormSubmitted(false)
-      setFormData({ name: '', email: '', phone: '', course: '', background: '' })
-    }, 3000)
-  }
+      setFormSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        course: "",
+        background: "",
+      });
+    }, 3000);
+  };
 
   return (
     <div className="w-full">
       {/* Header */}
-      <section className="pt-20 pb-12 bg-gradient-to-b from-primary/5 to-transparent">
+      <section className="pt-20 pb-12 bg-linear-to-b from-primary/5 to-transparent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -84,7 +100,9 @@ export function Registration() {
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div>
-                        <Label htmlFor="name" className="text-base mb-2 block">이름 *</Label>
+                        <Label htmlFor="name" className="text-base mb-2 block">
+                          이름 *
+                        </Label>
                         <Input
                           id="name"
                           name="name"
@@ -97,7 +115,9 @@ export function Registration() {
                       </div>
 
                       <div>
-                        <Label htmlFor="email" className="text-base mb-2 block">이메일 *</Label>
+                        <Label htmlFor="email" className="text-base mb-2 block">
+                          이메일 *
+                        </Label>
                         <Input
                           id="email"
                           name="email"
@@ -111,7 +131,9 @@ export function Registration() {
                       </div>
 
                       <div>
-                        <Label htmlFor="phone" className="text-base mb-2 block">전화번호 *</Label>
+                        <Label htmlFor="phone" className="text-base mb-2 block">
+                          전화번호 *
+                        </Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -124,7 +146,12 @@ export function Registration() {
                       </div>
 
                       <div>
-                        <Label htmlFor="course" className="text-base mb-2 block">관심 과정 *</Label>
+                        <Label
+                          htmlFor="course"
+                          className="text-base mb-2 block"
+                        >
+                          관심 과정 *
+                        </Label>
                         <select
                           id="course"
                           name="course"
@@ -144,7 +171,12 @@ export function Registration() {
                       </div>
 
                       <div>
-                        <Label htmlFor="background" className="text-base mb-2 block">학력/경력 소개</Label>
+                        <Label
+                          htmlFor="background"
+                          className="text-base mb-2 block"
+                        >
+                          학력/경력 소개
+                        </Label>
                         <textarea
                           id="background"
                           name="background"
@@ -160,7 +192,8 @@ export function Registration() {
                       </Button>
 
                       <p className="text-xs text-muted-foreground text-center">
-                        * 필수 항목입니다. 수집된 정보는 개인정보보호정책에 따라 보호됩니다.
+                        * 필수 항목입니다. 수집된 정보는 개인정보보호정책에 따라
+                        보호됩니다.
                       </p>
                     </form>
                   )}
@@ -175,51 +208,54 @@ export function Registration() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              <div>
-                <h2 className="text-4xl font-bold mb-6">등록의 장점</h2>
-              </div>
-
               {[
                 {
-                  title: '무료 상담',
-                  description: '전문가와 함께 당신의 목표에 맞는 과정을 선택할 수 있습니다'
+                  title: "무료 상담",
+                  description:
+                    "전문가와 함께 당신의 목표에 맞는 과정을 선택할 수 있습니다",
                 },
                 {
-                  title: '맞춤형 커리큘럼',
-                  description: '개인의 일정과 수준에 맞춘 학습 계획을 제공합니다'
+                  title: "맞춤형 커리큘럼",
+                  description:
+                    "개인의 일정과 수준에 맞춘 학습 계획을 제공합니다",
                 },
                 {
-                  title: '실시간 지원',
-                  description: '학습 중 언제든 도움을 받을 수 있습니다'
+                  title: "실시간 지원",
+                  description: "학습 중 언제든 도움을 받을 수 있습니다",
                 },
                 {
-                  title: '취업 연계',
-                  description: '졸업 후 취업 기회와 경력 개발을 지원합니다'
+                  title: "취업 연계",
+                  description: "졸업 후 취업 기회와 경력 개발을 지원합니다",
                 },
                 {
-                  title: '유연한 학습',
-                  description: '자신의 속도에 맞춰 온라인으로 학습할 수 있습니다'
+                  title: "유연한 학습",
+                  description:
+                    "자신의 속도에 맞춰 온라인으로 학습할 수 있습니다",
                 },
                 {
-                  title: '공식 인증',
-                  description: '정부에서 인증한 정식 대학 학위를 취득합니다'
-                }
+                  title: "공식 인증",
+                  description: "정부에서 인증한 정식 대학 학위를 취득합니다",
+                },
               ].map((benefit, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="flex gap-4"
+                  className="flex gap-4 items-start"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="flex-0 mt-1">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 flex-0">
                       <CheckCircle2 className="h-6 w-6 text-primary" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">{benefit.title}</h3>
-                    <p className="text-muted-foreground">{benefit.description}</p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-lg mb-1">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {benefit.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -235,7 +271,7 @@ export function Registration() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold mb-4">자주 묻는 질문</h2>
@@ -244,28 +280,28 @@ export function Registration() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
-                q: '학점은행제란 무엇입니까?',
-                a: '학점은행제는 평생교육 시대에 학습자의 다양한 학습경험을 학점으로 인정받고 이를 통해 대학 학위를 취득할 수 있도록 하는 국가정책입니다.'
+                q: "학점은행제란 무엇인가요?",
+                a: "학점은행제는 평생교육 시대에 학습자의 다양한 학습경험을 학점으로 인정받고 이를 통해 대학 학위를 취득할 수 있도록 하는 국가정책입니다.",
               },
               {
-                q: '수업은 언제 진행되나요?',
-                a: '모든 수업은 온라인으로 진행되며, 자신의 시간에 맞춰 언제든지 수강할 수 있습니다. 직장과 학습을 병행하기에 완벽합니다.'
+                q: "수업은 언제 진행되나요?",
+                a: "모든 수업은 온라인으로 진행되며, 자신의 시간에 맞춰 언제든지 수강할 수 있습니다. 직장과 학습을 병행하기에 완벽합니다.",
               },
               {
-                q: '학위는 정식 학위인가요?',
-                a: '네, 학점은행제를 통해 취득한 학위는 교육부에서 인정한 정식 대학 학위입니다. 취업과 진학에 활용할 수 있습니다.'
+                q: "학위는 정식 학위인가요?",
+                a: "네, 학점은행제를 통해 취득한 학위는 교육부에서 인정한 정식 대학 학위입니다. 취업과 진학에 활용할 수 있습니다.",
               },
               {
-                q: '비용은 얼마인가요?',
-                a: '과정마다 다르지만, 일반 대학보다 저렴하게 진행됩니다. 상담 시 정확한 비용을 안내해드립니다.'
-              }
+                q: "비용은 얼마인가요?",
+                a: "과정마다 다르지만, 일반 대학보다 저렴하게 진행됩니다. 상담 시 정확한 비용을 안내해드립니다.",
+              },
             ].map((faq, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <Card>
                   <CardHeader>
@@ -281,5 +317,5 @@ export function Registration() {
         </div>
       </section>
     </div>
-  )
+  );
 }

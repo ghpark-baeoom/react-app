@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# 배움 - 학점은행제 교육 플랫폼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+학점은행제를 통해 대학 학위를 취득할 수 있는 온라인 교육 플랫폼입니다.
 
-Currently, two official plugins are available:
+## 설치 및 실행
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 설치
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 개발 서버 실행
+```bash
+npm run dev
 ```
+
+### 빌드
+```bash
+npm run build
+```
+
+### 미리보기
+```bash
+npm run preview
+```
+
+## 주요 페이지
+
+| 페이지 | 설명 |
+|--------|------|
+| `/` | 메인 페이지 (소개, 기능, 통계) |
+| `/about` | 회사 소개 (미션, 비전, 팀) |
+| `/courses` | 과정 목록 (필터링 기능) |
+| `/registration` | 신청 폼 및 FAQ |
+
+## 기술 스택
+
+- **React 18** + TypeScript
+- **Tailwind CSS** (Dark Mode 지원)
+- **Framer Motion** (애니메이션)
+- **React Router** (라우팅)
+- **shadcn/ui** (UI 컴포넌트)
+- **Lucide React** (아이콘)
+- **Vite** (번들러)
+
+## 폴더 구조
+
+```
+src/
+├── pages/           # 페이지 컴포넌트
+├── components/      # 재사용 컴포넌트
+├── App.tsx          # 라우팅
+├── index.css        # 전역 스타일
+└── main.tsx         # 진입점
+```
+
+## 주요 기능
+
+- ✅ 반응형 디자인
+- ✅ 다크/라이트 모드
+- ✅ 부드러운 애니메이션
+- ✅ 과정 필터링
+- ✅ 신청 폼 (유효성 검사 포함)
+- ✅ FAQ 섹션
+
+## 스크립트
+
+| 명령어 | 설명 |
+|--------|------|
+| `npm run dev` | 개발 서버 시작 |
+| `npm run build` | 프로덕션 빌드 |
+| `npm run preview` | 빌드 결과 미리보기 |
+| `npm run lint` | ESLint 검사 |
+
+## 라이선스
+
+MIT

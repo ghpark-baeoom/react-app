@@ -103,14 +103,14 @@ export function Courses() {
       </section>
 
       {/* Filters */}
-      <section className="py-12 sticky top-16 bg-background/95 backdrop-blur z-40">
+      <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 font-medium ${
+                className={`px-6 py-2 rounded-full transition-all duration-300 font-medium hover:cursor-pointer ${
                   selectedCategory === category
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted text-muted-foreground hover:bg-muted/80'
@@ -135,9 +135,8 @@ export function Courses() {
                 key={course.id}
                 layout
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
               >
                 <Card className="h-full flex flex-col hover:shadow-xl hover:border-primary/50 transition-all duration-300 overflow-hidden group cursor-pointer">
                   <div className="h-40 bg-gradient-to-br from-primary/20 to-primary/5 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300" />
@@ -225,7 +224,7 @@ export function Courses() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h2 className="text-4xl font-bold mb-4">완벽한 과정을 찾으셨나요?</h2>
             <p className="text-lg text-muted-foreground mb-8">
